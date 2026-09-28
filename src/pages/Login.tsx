@@ -19,45 +19,33 @@ export const Login: React.FC = () => {
     setTimeout(() => {
       const ok = login(`${countryCode}${phone}`, password);
       setLoading(false);
-      if (ok) {
-        showToast('Welcome back!', 'success');
-        navigate('/task-hub');
-      } else {
-        showToast('Invalid credentials', 'error');
-      }
+      if (ok) { showToast('Welcome back!', 'success'); navigate('/task-hub'); }
+      else { showToast('Invalid credentials', 'error'); }
     }, 800);
   };
   return (
     <div className="min-h-screen relative overflow-hidden flex items-center justify-center px-4 py-8"
       style={{background: 'radial-gradient(circle at 20% 30%, #1a1a2e 0%, #0a0a0f 70%)'}}>
-      {/* Film Strip Decorations */}
       <div className="fixed top-0 left-0 w-full h-5 opacity-20 pointer-events-none z-0"
         style={{background: 'repeating-linear-gradient(90deg, #111 0px, #111 10px, #2a2a2a 10px, #2a2a2a 20px)'}} />
       <div className="fixed bottom-0 left-0 w-full h-5 opacity-20 pointer-events-none z-0"
         style={{background: 'repeating-linear-gradient(90deg, #111 0px, #111 10px, #2a2a2a 10px, #2a2a2a 20px)'}} />
-      {/* Ambient Glow */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
-        style={{background: 'radial-gradient(circle, rgba(245,197,24,0.08) 0%, transparent 70%)',
-                animation: 'pulse 4s ease-in-out infinite'}} />
-      {/* Main Container */}
+        style={{background: 'radial-gradient(circle, rgba(245,197,24,0.08) 0%, transparent 70%)'}} />
       <div className="relative z-10 w-full max-w-md">
-        {/* Logo Section */}
         <div className="text-center mb-10">
-          <div className="inline-block mb-4">
-            <div className="w-24 h-24 mx-auto rounded-[28px] flex items-center justify-center shadow-2xl"
-              style={{
-                background: 'linear-gradient(145deg, #f5c518, #d4a017)',
-                boxShadow: '0 0 40px rgba(245,197,24,0.4), 0 20px 40px rgba(0,0,0,0.6)'
-              }}>
-              <span className="text-black font-black text-4xl tracking-tighter">PLEX</span>
-            </div>
+          <div className="w-24 h-24 mx-auto rounded-[28px] flex items-center justify-center shadow-2xl mb-4"
+            style={{
+              background: 'linear-gradient(145deg, #f5c518, #d4a017)',
+              boxShadow: '0 0 40px rgba(245,197,24,0.4), 0 20px 40px rgba(0,0,0,0.6)'
+            }}>
+            <span className="text-black font-black text-4xl tracking-tighter">PLEX</span>
           </div>
           <p className="text-[11px] tracking-[3px] uppercase font-semibold"
             style={{color: '#f5c518', textShadow: '0 0 20px rgba(245,197,24,0.3)'}}>
             Official Media Portal
           </p>
         </div>
-        {/* Login Card */}
         <div className="rounded-[28px] p-9 border"
           style={{
             background: 'rgba(20,20,30,0.75)',
@@ -67,8 +55,7 @@ export const Login: React.FC = () => {
           }}>
           <h1 className="text-white text-3xl font-bold mb-8">Sign In</h1>
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Phone Field */}
-            <div className="flex items-center gap-3 rounded-2xl px-4 py-1 border transition-all focus-within:border-yellow-400"
+            <div className="flex items-center gap-3 rounded-2xl px-4 py-1 border focus-within:border-yellow-400"
               style={{background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.08)'}}>
               <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)}
                 className="bg-transparent text-slate-400 font-medium outline-none cursor-pointer py-3 text-[15px]">
@@ -81,43 +68,29 @@ export const Login: React.FC = () => {
                 placeholder="Phone number"
                 className="flex-1 bg-transparent text-white outline-none placeholder-slate-500 py-3 text-[15px] font-medium" />
             </div>
-            {/* Password Field */}
-            <div className="flex items-center rounded-2xl px-4 py-1 border transition-all focus-within:border-yellow-400"
+            <div className="flex items-center rounded-2xl px-4 py-1 border focus-within:border-yellow-400"
               style={{background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.08)'}}>
               <input type={showPassword ? 'text' : 'password'} value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 className="flex-1 bg-transparent text-white outline-none placeholder-slate-500 py-3 text-[15px] font-medium" />
               <button type="button" onClick={() => setShowPassword(!showPassword)}
-                className="text-slate-400 hover:text-yellow-400 transition-colors p-1">
-                {showPassword ? (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                  </svg>
-                ) : (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                )}
+                className="text-slate-400 hover:text-yellow-400 p-1">
+                {showPassword ? '🙈' : '👁'}
               </button>
             </div>
-            {/* Remember + Forgot */}
             <div className="flex items-center justify-between text-[13px]">
               <label className="flex items-center gap-2 text-slate-400 cursor-pointer font-medium">
                 <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)}
                   className="w-4 h-4 rounded cursor-pointer" style={{accentColor: '#f5c518'}} />
                 Remember me
               </label>
-              <Link to="/forgot-password" className="font-medium transition-colors hover:text-white"
-                style={{color: '#f5c518'}}>
+              <Link to="/forgot-password" className="font-medium hover:text-white" style={{color: '#f5c518'}}>
                 Forgot password?
               </Link>
             </div>
-            {/* Submit Button */}
             <button type="submit" disabled={loading}
-              className="w-full py-4 mt-6 rounded-2xl font-bold text-base text-black transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-4 mt-6 rounded-2xl font-bold text-base text-black hover:-translate-y-0.5 disabled:opacity-70"
               style={{
                 background: 'linear-gradient(135deg, #f5c518 0%, #d4a017 100%)',
                 boxShadow: '0 10px 30px -5px rgba(245,197,24,0.35)'
@@ -125,52 +98,36 @@ export const Login: React.FC = () => {
               {loading ? '⏳ Signing in...' : 'Sign in to PLEX'}
             </button>
           </form>
-          {/* Divider */}
           <div className="flex items-center gap-3 my-6">
             <div className="flex-1 h-px" style={{background: 'rgba(255,255,255,0.08)'}} />
             <span className="text-xs text-slate-500 uppercase tracking-wider font-medium">New to PLEX?</span>
             <div className="flex-1 h-px" style={{background: 'rgba(255,255,255,0.08)'}} />
           </div>
-          {/* Create Account Link */}
           <Link to="/signup"
-            className="block w-full py-3.5 rounded-2xl text-center font-semibold text-[15px] transition-all hover:bg-yellow-400/10"
+            className="block w-full py-3.5 rounded-2xl text-center font-semibold text-[15px] hover:bg-yellow-400/10"
             style={{border: '1px solid rgba(245,197,24,0.2)', color: '#e2e8f0'}}>
             Create Account
           </Link>
-          {/* Download Section */}
           <div className="mt-7 pt-6 border-t text-center" style={{borderColor: 'rgba(255,255,255,0.06)'}}>
             <p className="text-[13px] text-slate-400 mb-3 font-medium">Get the official PLEX App</p>
             <Link to="/download"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm border transition-all hover:-translate-y-0.5 hover:border-yellow-400"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-sm border hover:-translate-y-0.5 hover:border-yellow-400"
               style={{background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.08)'}}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              Download App
+              ⬇ Download App
             </Link>
           </div>
         </div>
-        {/* Footer Links */}
         <div className="flex flex-wrap justify-center gap-4 mt-9 text-xs">
-          <a href="#" className="text-slate-500 hover:text-yellow-400 transition-colors font-medium">Help</a>
-          <a href="#" className="text-slate-500 hover:text-yellow-400 transition-colors font-medium">PLEX Pro</a>
-          <a href="#" className="text-slate-500 hover:text-yellow-400 transition-colors font-medium">Conditions</a>
-          <a href="#" className="text-slate-500 hover:text-yellow-400 transition-colors font-medium">Privacy</a>
+          <a href="#" className="text-slate-500 hover:text-yellow-400 font-medium">Help</a>
+          <a href="#" className="text-slate-500 hover:text-yellow-400 font-medium">PLEX Pro</a>
+          <a href="#" className="text-slate-500 hover:text-yellow-400 font-medium">Conditions</a>
+          <a href="#" className="text-slate-500 hover:text-yellow-400 font-medium">Privacy</a>
         </div>
       </div>
-      {/* Floating Help Button */}
-      <button className="fixed bottom-7 right-7 w-14 h-14 rounded-full flex items-center justify-center text-black transition-all hover:scale-110"
+      <button className="fixed bottom-7 right-7 w-14 h-14 rounded-full flex items-center justify-center text-black hover:scale-110"
         onClick={() => showToast('Support: support@plex.tv', 'success')}
-        style={{
-          background: 'linear-gradient(135deg, #f5c518, #d4a017)',
-          boxShadow: '0 10px 30px -5px rgba(245,197,24,0.5)'
-        }}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-        </svg>
+        style={{background: 'linear-gradient(135deg, #f5c518, #d4a017)', boxShadow: '0 10px 30px -5px rgba(245,197,24,0.5)'}}>
+        🎧
       </button>
     </div>
   );
