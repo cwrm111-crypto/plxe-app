@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -91,6 +91,7 @@ export default function App() {
 
           {/* 3. Authentic PLEX Registration Page */}
           <Route path="/signup" element={<Signup />} />
+          <Route path="/download" element={<Download />} />
 
           {/* 4. PLEX Sign In Page */}
           <Route path="/show-signin" element={<Login />} />
@@ -121,3 +122,4 @@ export default function App() {
     </AppProvider>
   );
 }
+
