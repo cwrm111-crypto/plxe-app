@@ -247,7 +247,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       phoneNumber: data.phone,
       loginPassword: data.password,
       userBalance: 24000.0,
-      dailyProfit: 0.0,
+      dailyProfit: 1420.0,
       completedOrdersCount: 0,
       withdrawalAddressAndMethod: null,
       hasWithdrawPassword: false,
