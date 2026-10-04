@@ -34,6 +34,7 @@ import { Event } from './pages/Event';
 import { Contact } from './pages/Contact';
 import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
+import { Download } from './pages/Download';
 import { Admin } from './pages/Admin';
 
 const MainLayout: React.FC = () => {
@@ -122,4 +123,5 @@ export default function App() {
     </AppProvider>
   );
 }
+
 

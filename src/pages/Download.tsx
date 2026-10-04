@@ -1,84 +1,41 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
-export const Download: React.FC = () => {
-  return (
-    <div className="min-h-screen p-4"
-      style={{background: 'radial-gradient(circle at 20% 30%, #1a1a2e 0%, #0a0a0f 70%)'}}>
-      <div className="max-w-md mx-auto py-12">
-        {/* Logo */}
-        <div className="text-center mb-10">
-          <div className="inline-block bg-gradient-to-br from-yellow-400 to-yellow-600 text-black font-black text-5xl tracking-tighter px-8 py-4 rounded-3xl shadow-2xl"
-            style={{boxShadow: '0 0 60px rgba(245,197,24,0.5)'}}>
-            PLEX
-          </div>
-          <p className="text-yellow-400 text-xs tracking-[4px] mt-4 uppercase font-semibold">Download the App</p>
-        </div>
-        {/* Download Card */}
-        <div className="rounded-3xl p-6 mb-6 border border-yellow-400/20"
-          style={{background: 'rgba(18,18,28,0.75)', backdropFilter: 'blur(24px)',
-                  boxShadow: '0 30px 60px -12px rgba(0,0,0,0.8), 0 0 80px -20px rgba(245,197,24,0.35)'}}>
-          <h2 className="text-white text-xl font-bold mb-2">PLEX Mobile App</h2>
-          <p className="text-slate-400 text-sm mb-6">Version 3.0.0 • 80 MB • Android 6.0+</p>
-          {/* Android */}
-          <a href="/plex-app.apk" download
-            className="flex items-center justify-between p-4 rounded-2xl mb-3 border border-white/10 hover:border-yellow-400 transition-all group"
-            style={{background: 'rgba(255,255,255,0.04)'}}>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-2xl">🤖</div>
-              <div>
-                <p className="text-white font-bold">Download for Android</p>
-                <p className="text-slate-500 text-xs">Direct APK • Free</p>
-              </div>
-            </div>
-            <span className="text-yellow-400 text-2xl group-hover:translate-x-1 transition-transform">↓</span>
-          </a>
-          {/* iOS */}
-          <a href="#" onClick={(e) => { e.preventDefault(); alert('iOS: Safari-তে খুলুন → Share → Add to Home Screen'); }}
-            className="flex items-center justify-between p-4 rounded-2xl mb-3 border border-white/10 hover:border-yellow-400 transition-all group"
-            style={{background: 'rgba(255,255,255,0.04)'}}>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-2xl">🍏</div>
-              <div>
-                <p className="text-white font-bold">Download for iOS</p>
-                <p className="text-slate-500 text-xs">Add to Home Screen</p>
-              </div>
-            </div>
-            <span className="text-yellow-400 text-2xl group-hover:translate-x-1 transition-transform">→</span>
-          </a>
-          {/* Web */}
-          <Link to="/login"
-            className="flex items-center justify-between p-4 rounded-2xl border border-white/10 hover:border-yellow-400 transition-all group"
-            style={{background: 'rgba(255,255,255,0.04)'}}>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center text-2xl">🌐</div>
-              <div>
-                <p className="text-white font-bold">Use Web Version</p>
-                <p className="text-slate-500 text-xs">No download needed</p>
-              </div>
-            </div>
-            <span className="text-yellow-400 text-2xl group-hover:translate-x-1 transition-transform">→</span>
-          </Link>
-        </div>
-        {/* Features */}
-        <div className="grid grid-cols-2 gap-3 mb-6">
-          {[
-            { icon: '🔒', title: 'Secure', desc: '256-bit SSL' },
-            { icon: '⚡', title: 'Fast', desc: 'Instant transactions' },
-            { icon: '💰', title: 'Earn', desc: 'Daily rewards' },
-            { icon: '🎬', title: 'Movies', desc: '10,000+ titles' }
-          ].map((f, i) => (
-            <div key={i} className="p-4 rounded-2xl text-center border border-white/10"
-              style={{background: 'rgba(255,255,255,0.04)'}}>
-              <div className="text-3xl mb-2">{f.icon}</div>
-              <p className="text-white font-bold text-sm">{f.title}</p>
-              <p className="text-slate-500 text-xs">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-        <Link to="/" className="block text-center text-yellow-400 text-sm hover:text-white transition-colors">
-          ← Back to Home
-        </Link>
+import { ArrowDownCircle, Film, Globe, ShieldCheck, Smartphone } from 'lucide-react';
+
+const APK_URL = 'https://github.com/cwrm111-crypto/plxe-app/releases/latest/download/PLEX.apk';
+
+export const Download: React.FC = () => (
+  <div className="min-h-screen bg-[#060a14] px-4 py-10 text-white">
+    <div className="mx-auto max-w-md">
+      <div className="mb-8 text-center">
+        <div className="mx-auto inline-flex rounded-3xl bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-600 px-8 py-4 text-5xl font-black text-black shadow-2xl">PLEX</div>
+        <p className="mt-4 text-xs font-semibold uppercase tracking-[4px] text-yellow-400">Web + Android</p>
+        <h1 className="mt-3 text-2xl font-black">PLEX, everywhere</h1>
+        <p className="mt-2 text-sm leading-relaxed text-slate-400">Use the same PLEX movie and trailer experience on the web or Android.</p>
       </div>
+
+      <div className="rounded-3xl border border-yellow-400/20 bg-[#12121c]/90 p-6 shadow-2xl">
+        <div className="mb-5 flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-yellow-400/20 bg-yellow-400/10"><Smartphone className="h-5 w-5 text-yellow-400" /></div>
+          <div><h2 className="text-lg font-extrabold">PLEX Android App</h2><p className="text-xs text-slate-500">Latest GitHub Release APK</p></div>
+        </div>
+
+        <a href={APK_URL} download="PLEX.apk" className="group flex items-center justify-between rounded-2xl border border-yellow-400/25 bg-yellow-400/5 p-4 transition-all hover:border-yellow-400/60 hover:bg-yellow-400/10">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/15"><ArrowDownCircle className="h-7 w-7 text-green-400" /></div>
+            <div><p className="font-bold">Download PLEX.apk</p><p className="text-xs text-slate-500">Direct Android installer</p></div>
+          </div>
+          <span className="text-2xl text-yellow-400 transition-transform group-hover:translate-y-1">â†“</span>
+        </a>
+
+        <div className="mt-4 grid grid-cols-3 gap-2">
+          <div className="rounded-xl border border-white/10 bg-white/[.03] p-3 text-center"><ShieldCheck className="mx-auto mb-1.5 h-5 w-5 text-green-400" /><p className="text-[11px] font-bold">Installable</p></div>
+          <div className="rounded-xl border border-white/10 bg-white/[.03] p-3 text-center"><Film className="mx-auto mb-1.5 h-5 w-5 text-yellow-400" /><p className="text-[11px] font-bold">Trailers</p></div>
+          <div className="rounded-xl border border-white/10 bg-white/[.03] p-3 text-center"><Globe className="mx-auto mb-1.5 h-5 w-5 text-blue-400" /><p className="text-[11px] font-bold">Same UI</p></div>
+        </div>
+      </div>
+
+      <Link to="/" className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-yellow-400 py-3.5 font-black text-black hover:bg-yellow-300"><Film className="h-4 w-4" />Open PLEX Web App</Link>
     </div>
-  );
-};
+  </div>
+);

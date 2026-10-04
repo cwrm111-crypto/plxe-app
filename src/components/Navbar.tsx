@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, Calendar, Gauge, X, Film, UserPlus, Zap, ArrowDownCircle } from 'lucide-react';
+import { Menu, Calendar, Gauge, X, Film, UserPlus, Zap, ArrowDownCircle, Download as DownloadIcon } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 interface Props {
@@ -40,7 +40,7 @@ export const Navbar: React.FC<Props> = ({ onOpenDrawer }) => {
           <div className="hidden lg:flex items-center gap-3 bg-white/80 border border-slate-300 px-3 py-1 rounded-full text-xs font-semibold">
             <span className="text-slate-500">Available:</span>
             <span className="text-emerald-700 font-bold font-mono">
-              ৳{user.userBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+              à§³{user.userBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}
             </span>
             <span className="text-slate-400">|</span>
             <span className="text-amber-700">{user.userType}</span>
@@ -60,6 +60,16 @@ export const Navbar: React.FC<Props> = ({ onOpenDrawer }) => {
 
             {/* Direct Task Link */}
             <Link
+              to="/download"
+              className="flex items-center gap-1.5 bg-slate-900 hover:bg-black text-yellow-300 px-3 py-1.5 rounded-md text-sm font-bold shadow-xs transition-transform active:scale-95"
+              title="Download PLEX Android App"
+            >
+              <DownloadIcon className="w-4 h-4" />
+              <span>Download App</span>
+            </Link>
+
+            <Link
+              to="/task"            <Link
               to="/task"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-semibold transition-colors ${
                 location.pathname === '/task'
@@ -191,3 +201,4 @@ export const Navbar: React.FC<Props> = ({ onOpenDrawer }) => {
     </nav>
   );
 };
+
