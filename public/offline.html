@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#060a14">
+<title>PLEX - Offline</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,Arial,sans-serif}
+body{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 50% 15%,#1f2b46 0,#060a14 62%);
+}
+.card{
+  width:min(460px,100%);
+  padding:44px 30px;
+  text-align:center;
+  border-radius:30px;
+  border:1px solid rgba(245,197,24,.35);
+  background:rgba(15,22,38,.94);
+  box-shadow:0 30px 90px rgba(0,0,0,.7);
+}
+.logo{
+  width:104px;
+  height:104px;
+  margin:0 auto 24px;
+  border-radius:26px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#f5c518,#fbbf24);
+  color:#000;
+  font-size:34px;
+  font-weight:900;
+  letter-spacing:2px;
+  box-shadow:0 18px 40px rgba(245,197,24,.3);
+}
+h1{margin:0 0 10px;font-size:28px}
+p{margin:0;color:#94a3b8;line-height:1.7;font-size:14px}
+button{
+  margin-top:24px;
+  border:0;
+  border-radius:13px;
+  padding:15px 24px;
+  background:linear-gradient(135deg,#f5c518,#fbbf24);
+  color:#000;
+  font-weight:900;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="logo">PLEX</div>
+  <h1>You're Offline</h1>
+  <p>
+    PLEX Premium is ready. Reconnect to load live movie information,
+    posters and official trailers.
+  </p>
+  <button onclick="location.reload()">Try Again</button>
+</main>
+</body>
+</html>

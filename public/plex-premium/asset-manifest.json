@@ -1,0 +1,10 @@
+{
+  "edition": "PLEX Premium v3.1.0",
+  "asset_count": 45,
+  "asset_bytes": 92878862,
+  "asset_megabytes": 88.58,
+  "posters": 30,
+  "backdrops": 12,
+  "icon": "resources/icon.png",
+  "splash": "resources/splash.png"
+}
